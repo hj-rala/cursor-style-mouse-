@@ -1,0 +1,37 @@
+<style>
+/* cursor */
+.cursor {opacity:0;position: absolute;left:0;top:0;border-radius: 50%; pointer-events: none;left: 0;top: 0;height: 0;width: 0;height:6px;width:6px;backface-visibility: hidden;margin:-3px 0 0 -3px;text-align:center; z-index:50;}
+#cursor  {z-index:50;display:inline-block;width:6px; height:6px; margin:-3px 0 0 -3px;background:#fd1f40;border-radius:4px;}
+
+</style>
+
+
+<script type="text/javascript">
+$(function(){
+// cursor
+	var posX, posY;
+	var cursorFlag = true;
+	var $cursor = $('.cursor');  
+	$('#mainContainer).mousemove(cursor);//영역지정
+
+	function cursor(e) {
+		posX = e.pageX;
+		posY = e.pageY;
+		window.requestAnimationFrame(showCursor);  
+		if (cursorFlag == true){
+		  $cursor.css('opacity','1');
+
+		  cursorFlag = false;
+		}    
+	}
+
+	function showCursor() {
+		$cursor.css({'-webkit-transform': 'translateX(' + posX + 'px) translateY(' + posY + 'px)', 'transform': 'translateX(' + posX + 'px) translateY(' + posY + 'px)' });
+	}
+
+});
+</script>
+
+
+<div id="cursor" class="cursor">
+</div>
