@@ -28,6 +28,15 @@ $(function(){
 	function showCursor() {
 		$cursor.css({'-webkit-transform': 'translateX(' + posX + 'px) translateY(' + posY + 'px)', 'transform': 'translateX(' + posX + 'px) translateY(' + posY + 'px)' });
 	}
+	
+	$('.visual a').each(function(){
+		$(this).hover(function(){
+			$(this).siblings('#cursorLine').addClass('hover');
+		},function(){
+			$(this).siblings('#cursorLine').removeClass('hover');
+		});
+	});  
+
 
 });
 </script>
